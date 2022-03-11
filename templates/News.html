@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %}
+
+{% load simpleapp_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+
+{% block content %}
+<h1>Все новости </h1>
+{% for Post in News %}
+    {{ Post.title|censor }}, {{Post.dateCreation|date:'d M Y'}}:
+    {{ Post.text|truncatechars:50|censor }}
+
+
+{% endfor %}
+{% endblock content %}
